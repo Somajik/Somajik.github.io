@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier la commande à emporter{% endblock %}
+
+{% block body %}
+    <h1>Modifier la commande à emporter</h1>
+
+    {{ include('commande_a_emporter/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_commande_a_emporter_index') }}"><img src="{{ asset('images/retour_icon.png') }}" alt="Retour à la liste" class="icon"></a>
+
+    {{ include('commande_a_emporter/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des plats{% endblock %}
+
+{% block body %}
+    <h1>Liste des plats</h1>
+
+    <a href="{{ path('app_plat_new') }}">Créer un nouveau plat.</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th>Catégorie</th>
+                <th>Image</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for plat in plats %}
+            <tr>
+                {# <td>{{ plat.id }}</td> #}
+                <td>{{ plat.categoryNumber.name }}</td>
+                <td><img src="{{app.request.basepath}}/images/{{ plat.image }}" alt="{{ plat.name }}" class ="imggestionadmin"></td>
+                <td>{{ plat.name }}</td>
+                <td>{{ plat.price }} €</td>
+                <td>{{ plat.description }}</td>
+                <td>
+                    <a href="{{ path('app_plat_show', {'id': plat.id}) }}"><img src="{{ asset('images/show_boutto.png') }}" alt="Afficher" class="icon"></a>
+                    <a href="{{ path('app_plat_edit', {'id': plat.id}) }}"><img src="{{ asset('images/edit_icon.png') }}" alt="Editer" class="icon"></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun plat enregistré...</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

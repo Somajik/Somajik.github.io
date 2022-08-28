@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des catégories des plats{% endblock %}
+
+{% block body %}
+    <h1>Liste des catégories des plats</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th>Intitulé</th>
+                {# <th>IdName</th> #}
+                <th>Icône</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                {# <td>{{ category.id }}</td> #}
+                <td>{{ category.name }}</td>
+                {# <td>{{ category.idname }}</td> #}
+                <td><img src="{{app.request.basepath}}/images/{{ category.image }}" alt="{{ category.name }}" class="icon"></td>
+                <td>
+                    <a href="{{ path('app_category_show', {'id': category.id}) }}"><img src="{{ asset('images/show_boutto.png') }}" alt="Afficher" class="icon"></a>
+                    <a href="{{ path('app_category_edit', {'id': category.id}) }}"><img src="{{ asset('images/edit_icon.png') }}" alt="Editer" class="icon"></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucune catégorie trouvée...</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_category_new') }}">Créer une nouvelle catégorie</a>
+{% endblock %}

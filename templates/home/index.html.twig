@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{# {% block title %}Hello HomeController!{% endblock %} #}
+
+{% block body %}
+
+    {% if app.user %}
+        <h3 class="mb-3">
+        
+             Bienvenue {{ app.user.name|capitalize }} {{ app.user.firstname }} !
+
+             {# <a href="{{ path('app_logout') }}"> (Me déconnecter)</a>  #}
+        </h3>
+    {% endif %}
+    
+                {# <h1><a href="{{ path ("app_carte_restaurant") }}" class="nav-link">Carte du restaurant</a></h1> #}
+            
+
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                <img src="{{ asset('images/salle.jpg') }}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                <img src="{{ asset('images/plat.png') }}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                <img src="{{ asset('images/carpaccio.jpg') }}" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Précédent</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Suivant</span>
+            </button>
+            </div>
+          
+        <div class="descriptionhome">
+            <p>Le bistrot symfony est un lieu plutôt populaire où l’on sert des plats simples, copieux et traditionnels à des prix abordables. La restauration est traditionnelle composée d'apéritifs, d'entrées, de plats ,de plats du jour et de desserts. Les repas sont servis sur place ou à emporter. Le bistrot propose une ambiance chaleureuse avec un espace terrasse et bénéficie d’une accessibilité au fauteuil roulant.
+            </p>
+            <div class="blocinfobistrottop">
+                <p class="blocinfobistrot">Les horaires d'ouvertures :<br/>
+                du Lundi au Dimanche<br/>
+                de 7 h 00 à 23 h 00.</p>
+                <p class="blocinfobistrot">L'enseigne se trouve au <br/>
+                5, rue Angéline dans le 11ème arrondissement de Paris.</p>
+                <p class="blocinfobistrot">Les prestations de l'établissement :<br/>
+                Service de restauration en ligne, sur place et à emporter.</p>
+            </div>
+        </div>
+
+{% endblock %}

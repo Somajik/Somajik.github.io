@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un plat du jour{% endblock %}
+
+{% block body %}
+    <h1>Créer un plat du jour</h1>
+
+    {{ include('plat_jour/_form.html.twig') }}
+    
+    {# <button class="btn">{{ button_label|default('Enregistrer') }}</button> #}
+{% endblock %}

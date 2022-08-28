@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des formules{% endblock %}
+
+{% block body %}
+    <h1>Liste des formules</h1>
+
+    <a href="{{ path('app_formule_new') }}">Créer une nouvelle formule.</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Image</th>
+                <th>Status</th>
+                <th>Date de création</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for formule in formules %}
+            <tr>
+                {# <td>{{ formule.id }}</td> #}
+                <td>{{ formule.name }}</td>
+                <td>{{ formule.description }}</td>
+                <td>{{ formule.price }}</td>
+                <td>{{ formule.image }}</td>
+                <td>{{ formule.status ? 'Visible' : 'Non Visible' }}</td>
+                <td>{{ formule.dateCreation ? formule.dateCreation|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_formule_show', {'id': formule.id}) }}"><img src="{{ asset('images/show_boutto.png') }}" alt="Afficher" class="icon"></a>
+                    <a href="{{ path('app_formule_edit', {'id': formule.id}) }}"><img src="{{ asset('images/edit_icon.png') }}" alt="Editer" class="icon"></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucune formule enregistrée...</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

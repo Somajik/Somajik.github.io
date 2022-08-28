@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Plats du jour{% endblock %}
+
+{% block body %}
+    <h1>Liste des Plats du jour</h1>
+
+    <a href="{{ path('app_plat_jour_new') }}">Créer un nouveau plat du jour.</a>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th>Plat du jour</th>
+                <th>Prix</th>
+                <th>Date de création</th>
+                <th>Statut</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for plat_jour in plat_jours %}
+            <tr>
+                {# <td>{{ plat_jour.id }}</td> #}
+                {# {% for plat in plats %}
+                    <td>{{ plat.platJourNumber }}</td>
+                {% endfor %} #}
+                <td>{{ plat_jour.name }}</td>
+                <td>{{ plat_jour.price }}</td>
+                <td>{{ plat_jour.dateCreation ? plat_jour.dateCreation|date('Y-m-d') : '' }}</td>
+                <td>{{ plat_jour.status ? 'Visible' : 'Non visible' }}</td>
+                <td>
+                    <a href="{{ path('app_plat_jour_show', {'id': plat_jour.id}) }}"><img src="{{ asset('images/show_boutto.png') }}" alt="Afficher" class="icon"></a>
+                    <a href="{{ path('app_plat_jour_edit', {'id': plat_jour.id}) }}"><img src="{{ asset('images/edit_icon.png') }}" alt="Editer" class="icon"></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun Plat du jour enregistré...</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
