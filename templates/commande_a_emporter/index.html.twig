@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des commandes à emporter{% endblock %}
+
+{% block body %}
+    <h1>Liste des commandes à emporter</h1>
+
+    {# <a href="{{ path('app_commande_a_emporter_new') }}">Create new</a> #}
+
+    <table class="table">
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th>Date</th>
+                <th>Horaire</th>
+                <th>Statut</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande_a_emporter in commande_a_emporters %}
+            <tr>
+                {# <td>{{ commande_a_emporter.id }}</td> #}
+                <td>{{ commande_a_emporter.dateCreation ? commande_a_emporter.dateCreation|date('d.m.Y') : '' }}</td>
+                <td>{{ commande_a_emporter.hour ? commande_a_emporter.hour|date('H:i:s') : '' }}</td>
+                <td>{{ commande_a_emporter.status }}</td>
+                <td>
+                    <a href="{{ path('app_commande_a_emporter_show', {'id': commande_a_emporter.id}) }}"><img src="{{ asset('images/show_boutto.png') }}" alt="Afficher" class="icon"></a>
+                    <a href="{{ path('app_commande_a_emporter_edit', {'id': commande_a_emporter.id}) }}"><img src="{{ asset('images/edit_icon.png') }}" alt="Editer" class="icon"></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucune commande enregistrée...</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

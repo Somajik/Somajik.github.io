@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Réservations{% endblock %}
+
+{% block body %}
+    <h1>Liste des Réservations</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th>Date réservée</th>
+                <th>Nombre d'invités</th>
+                {# <th>Créneau</th> #}
+                <th>Options</th>
+                <th>Message</th>
+                <th>Nom</th>
+                <th>Status</th>
+                {# <th>Date</th> #}
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for admin_reservation in admin_reservations %}
+            <tr>
+                {# <td>{{ admin_reservation.id }}</td> #}
+                <td>{{ admin_reservation.dateReservation ? admin_reservation.dateReservation|date('d.m.Y') : '' }}</td>
+                <td>{{ admin_reservation.guestNumber }}</td>
+                <td>{{ admin_reservation.options }}</td>
+                <td>{{ admin_reservation.message }}</td>
+                <td>{{ admin_reservation.referenceReservation.name }}</td>
+                <td>{{ admin_reservation.status }}</td>
+                {# <td>{{ admin_reservation.dateCreation ? admin_reservation.dateCreation|date('d.m.Y') : '-' }}</td> #}
+                <td>
+                    <a href="{{ path('app_admin_reservation_show', {'id': admin_reservation.id}) }}"><img src="{{ asset('images/show_boutto.png') }}" alt="Afficher" class="icon"></a>
+                    <a href="{{ path('app_admin_reservation_edit', {'id': admin_reservation.id}) }}"><img src="{{ asset('images/edit_icon.png') }}" alt="Editer" class="icon"></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">Aucune réservation trouvée pour le moment...</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {# <a href="{{ path('app_admin_reservation_new') }}">Create new</a> #}
+{% endblock %}

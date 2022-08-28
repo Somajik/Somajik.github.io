@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer un Plat{% endblock %}
+
+{% block body %}
+    <h1>Editer Plat : {{ plat.name }}</h1>
+
+    {{ include('plat/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_plat_index') }}"><img src="{{ asset('images/retour_icon.png') }}" alt="Retour à la liste" class="icon"></a>
+
+    {{ include('plat/_delete_form.html.twig') }}
+{% endblock %}

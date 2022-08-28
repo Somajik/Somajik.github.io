@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer une nouvelle formule{% endblock %}
+
+{% block body %}
+    <h1>Créer une nouvelle formule</h1>
+
+    {{ include('formule/_form.html.twig') }}
+    
+    {# <button class="btn">{{ button_label|default('Enregistrer') }}</button> #}
+{% endblock %}

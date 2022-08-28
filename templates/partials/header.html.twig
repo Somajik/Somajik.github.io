@@ -1,0 +1,52 @@
+<header>
+
+<div class="gauche">
+    <a href="{{ path ("app_home")}}"><img src="{{ asset('images/LogoBistrotSymfony.png') }}" alt="logo" class="logo">
+    <div class="headerlogo">Bistrot<br/>Symfony</div></a>
+</div>
+
+<div class="droite">
+    <ul class="nav justify-content-end">
+            <li class="nav-item" class="carterestohome">
+                <a href="{{ path ("app_carte_restaurant") }}"><img src="{{ asset('images/carte.png')}}" alt="Icon carte du restaurant" class="iconheader">Carte du restaurant</a>  
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path ('app_commande_a_emporter_new') }}"><img src="{{ asset('images/sac.png')}}" alt="Icon A Emporter" class="iconheader">A Emporter</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path ('app_admin_reservation_new') }}"><img src="{{ asset('images/calendrier.png')}}" alt="Icon Réservation" class="iconheader">Réserver</a>
+            </li>
+            
+        {% if is_granted('ROLE_ADMIN') %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Administrateur</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{{ path ('app_user_index') }}">Gestion des Inscrits</a></li>
+            <li><a class="dropdown-item" href="{{ path ('app_commande_a_emporter_index') }}">Gestion des Commandes</a></li>
+            <li><a class="dropdown-item" href="{{ path ('app_admin_reservation_index') }}">Gestion des Réservations</a></li>
+            <li><a class="dropdown-item" href="{{ path ('app_plat_index') }}">Gestion de la Carte du restaurant</a></li>
+            <li><a class="dropdown-item" href="{{ path ('app_plat_jour_index') }}">Gestion du Plat du jour</a></li>
+            <li><a class="dropdown-item" href="{{ path ('app_formule_index') }}">Gestion des Formules</a></li>
+            <li><a class="dropdown-item" href="{{ path ('app_category_index') }}">Gestion des Catégories</a></li>
+          </ul>
+        </li>
+        {% endif %}
+
+            {% if app.user %}
+            <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="{{ asset('images/ConnexionIcon.png')}}" alt="Icon Connexion" class="iconconnexion"></a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{{ path ('app_user_profil') }}">Mon Profil</a></li>
+            <li><a class="dropdown-item" href="{{ path ('app_logout') }}">Me déconnecter</a></li>
+          </ul>
+            {% else %}
+                <a href="{{ path ("app_login") }}" class="nav-link">
+                <img src="{{ asset('images/ConnexionIcon.png')}}" alt="Icon Connexion"></a>
+            {% endif %}
+        </li>
+
+    </ul>
+</div>
+
+</header>

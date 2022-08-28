@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle commande à emporter
+{% endblock %}
+
+{% block body %}
+	<h1>Nouvelle commande à emporter</h1>
+
+
+	{# <button class="btn">{{ button_label|default('Enregistrer') }}</button> #}
+
+<div class="carteemporter d-flex align-items-start">
+
+    <div class="cadrepanier">
+        {{ include('commande_a_emporter/_form.html.twig') }}
+    </div>
+
+	
+		<div class="nav flex-column nav-pills me-3 carteresto" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+			{% for category in categories %}
+				<button class="nav-link" id="v-pills-{{category.idname}}-tab" data-bs-toggle="pill" data-bs-target="#v-pills-{{category.idname}}" type="button" role="tab" aria-controls="v-pills-{{category.idname}}" aria-selected="true">
+					{{category.name}}
+					<img src="{{app.request.basepath}}/images/{{ category.image }}" alt="logo {{category.name}}">
+				</button>
+			{% endfor %}
+			{# DEBUT BOUTON FORMULE #}
+			<button class="nav-link" id="v-pills-formule-tab" data-bs-toggle="pill" data-bs-target="#v-pills-formule" type="button" role="tab" aria-controls="v-pills-formule" aria-selected="false">
+				Formules
+				<img src="{{ asset('images/formules-icon.png') }}" alt="logo formule"></button>
+			{# FIN BOUTON FORMULE #}
+		</div>
+
+		<div class="tab-content" id="v-pills-tabContent">
+
+
+			{% for category in categories %}
+				<div class="tab-pane fade" id="v-pills-{{category.idname}}" role="tabpanel" aria-labelledby="v-pills-{{category.idname}}-tab" tabindex="0">
+					{% for plat in plats %}
+						{% if plat.categoryNumber.name == category.name %}
+							<div class="card minicarteresto"><img src="{{app.request.basepath}}/images/{{ plat.image }}" alt="logo {{plat.name}}">
+								<div class="card-body">
+									<h5 class="card-title">{{plat.name}}</h5>
+									<p class="card-detail">{{plat.description}}</p>
+									<p class="card-price">
+										{{plat.price}}
+										€</p>
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			{% endfor %}
+
+			{# DEBUT LISTE FORMULE #}
+			<div class="tab-pane fade" id="v-pills-formule" role="tabpanel" aria-labelledby="v-pills-formule-tab" tabindex="0">
+
+				{% for formule in formules %}
+					{% if formule.status == true %}
+						<div class="card minicarteresto"><img src="{{app.request.basepath}}/images/{{ formule.image }}" alt="menu {{formule.name}}">
+							<div class="card-body">
+								<h5 class="card-title">{{formule.name}}</h5>
+								<p class="card-detail">{{formule.description}}</p>
+								<p class="card-price">
+									{{formule.price}}
+									€</p>
+							</div>
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+			{# FIN LISTE FORMULE #}
+           
+		</div>
+       
+	</div>
+    
+
+
+</div></div></div>{% endblock %}
