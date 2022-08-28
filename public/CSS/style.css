@@ -1,0 +1,346 @@
+/************************************ COLORS, BUTTONS, ICONS, TABLES ************************************/
+
+:root {
+    --vert :#798564;
+    --beige :#e7c69b;
+    --jaune :#fbeac9;
+    --orange :#d49168;
+    --bleu :#8bafb0;
+}
+
+body{
+    width: 1250px;
+    margin:auto !important;
+    background-color: var(--vert) !important;
+    font-size: 1.1em !important;
+    color: var(--jaune) !important;
+    font-weight: bold;
+    font-family: 'Times New Roman' !important;
+}
+
+.btn {
+    background-color: var(--bleu) !important;
+    border: #FFFFFF 3px solid !important;
+    transition: 0.5s !important;
+}
+
+.btn a:link {
+    text-decoration: none !important;
+    color: #FFFFFF !important;
+}
+
+a:link {
+    text-decoration: none !important;
+    color: var(--jaune) !important;
+}
+
+.btn:hover {
+    transform: scale(0.95);
+}
+
+.icon {
+    width: 1.5em;
+    height: auto;
+    margin: 1em;
+}
+
+table, th, tr, td {
+    padding: 0.5rem !important;
+    text-align: center;
+}
+
+button.icon{
+    border: none !important;
+    margin: 0 !important;
+    background-color: rgb(255, 255, 255,0) !important;
+}
+
+.fields {
+    margin: 1em;
+}
+
+/************************************ header.html.twig ************************************/
+
+header {
+    margin-bottom: 2em;
+    padding: 0.5em; 
+    border-bottom: 3px solid var(--jaune);
+    position: relative;
+    height: 6em;
+}
+
+header a {
+    text-decoration: none;
+    color: var(--jaune) !important;
+}
+
+.gauche {
+    width: 25%;
+    float: left;
+    padding: 5px;
+}
+.gauche img {
+    float: left;
+}
+
+.droite{
+    margin-top: 0.5em;
+    width: 73%;
+    float: right;
+}
+
+.nav img {
+    width: 50px;
+    height: auto;
+}
+
+.nav-item {
+    margin: auto 0;
+}
+
+.logo {
+    border-radius: 150px;
+    width: 80px;
+    height: auto;
+    margin-right: 0.75em;
+}
+
+.btnheader {
+    border: 2px solid var(--jaune) !important;
+    border-radius: 20px;
+    margin-left: 30px;
+}
+
+.headerlogo{
+    font-size: 2em;
+    width: 6.2em;
+    margin: 0.2em;
+    line-height: 0.8em;
+    color: var(--jaune) !important;
+}
+
+.nav .iconheader {
+    height: 2em;
+    width:auto;
+    margin-right: 0.5em;
+
+}
+
+.dropdown-menu a:link {
+    color: var(--vert) !important;
+}
+
+.iconheader {
+    margin-right: 0.5em;
+    width: 0.5em;
+    height: auto;
+}
+
+.carterestohome {
+    margin-right: 0.5em;
+    width: 0.5em;
+    height: auto;
+    border: 2px solid var(--jaune);
+}
+
+img.iconconnexion {
+    height: 2em;
+    width: auto;
+}
+
+/************************************ footer.html.twig ************************************/
+
+
+.blocfooter {
+    margin-top: 1em;
+    padding: 0.5em; 
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    vertical-align: middle;
+    border-top: 3px solid var(--jaune);
+    background-color: var(--vert);
+}
+.blocfooter .info{
+    padding-top: 1em;
+    margin: 1em;
+    text-align: center;
+    margin:auto 0;
+}
+
+.blocfooter a:link{
+    text-decoration: none !important;
+    color:var(--jaune);
+}
+
+.blocfooter p {
+    line-height: 0.75em;
+}
+
+/************************************ index.html.twig ************************************/
+
+.carousel {
+    width: calc(100% - 100px);
+    margin: 50px auto;
+}
+
+.descriptionhome {
+    padding: 10px;
+    border: 10px ridge var(--beige);
+    margin: 50px;
+    color: #000;
+    text-align: center;
+}
+
+.blocinfobistrottop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.blocinfobistrot {
+    width: 33%;
+    margin: 0 !important;
+}
+
+.imggestionadmin {
+    height: 2em;
+    width: auto;
+    margin: 0.1em;
+}
+
+/************************************ login.html.twig ************************************/
+
+.loginpagebox {
+    padding: 1em;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.loginminibox {
+    border: 10px var(--jaune) ridge;
+    width: 45%;
+    padding: 2em;
+}
+
+/************************************ template > map > index.html.twig ************************************/
+
+.map {
+    float: right;
+    width:50%;
+    height:300px;
+}
+
+/************************************ template > mentions_legales > index.html.twig ************************************/
+
+.mentionslegales p {
+    color: #000;
+}
+.mentionslegales  h4  {
+    padding: 1em;
+    text-decoration: underline;
+}
+.mentionslegales h1 {
+    padding: 1em;
+    text-decoration: underline;
+}
+
+/************************************ template > carte_restaurant > index.html.twig ************************************/
+
+.specialplatjour {
+    text-align: center;
+    padding: 0.5em;
+    margin: auto;
+    border: 5px var(--jaune) ridge;
+    width: 50%;
+}
+
+.carteresto {
+    padding: 1em;
+    border-right: 3px var(--jaune) solid !important;
+}
+
+.carteresto button {
+    width: 90px !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+    border: 2px rgb(255, 255, 255,0) solid !important;
+    padding: 0.5em;
+}
+
+.carteresto .nav-link {
+    color: var(--jaune) !important;
+    border: 4px solid var(--bleu);
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    border: 2px var(--jaune) solid !important;
+    border-radius: 10px !important;
+    padding: 0.5em;
+}
+
+.minicarteresto {
+    color: #000 !important;
+    float: left !important;
+    margin: 0.25em;
+    width: 7em !important;
+}
+
+.minicarteresto .card-body {
+    font-size: 0.7em !important;
+    padding: 0.4em !important;
+    line-height: 1em !important;
+    margin: 0em !important;
+}
+
+.card-detail {
+    margin-bottom: 1em !important;
+}
+
+.minicarteresto h5 {
+    text-align: center !important;
+    font-size: 1.45em;
+}
+
+.card-price{
+    text-align: right !important;
+    width: 100px !important;
+    margin-bottom: 0em !important;
+}
+
+/************************************ template > plat > index.html.twig ************************************/
+
+.imggestionadminshow {
+    width: 25em;
+    height: auto;
+}
+
+table.showtable {
+    width: calc(100% - 2em);
+    margin: auto;
+}
+
+table.showtable td {
+    width: 50%;
+    text-align: left;
+}
+
+/************************************ template > commande_a_emporter > new.html.twig ************************************/
+
+.cadrepanier {
+    position: absolute;
+    right: 0;
+    top:0;
+    height: 100%;
+    width: 15em;
+    background-color: var(--jaune);
+    color: #000000;
+    padding: 1em;
+    text-align: center;
+    border: 5px var(--beige) ridge;
+}
+
+.carteemporter {
+    position: relative;
+}
